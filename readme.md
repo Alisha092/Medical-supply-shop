@@ -22,7 +22,7 @@ Caching with Redis
 You have to have a redis server up and runnig on your machine. more details on .env file.
 
 # Database Setup
-The database is deployed online, and you can use it directly; the connection information is provided in the .env file. However, if you wish to run the database locally, you can use the queries provided in the mysql.txt file to set up your local database environment.
+You can use the queries provided in the mysql.txt file to set up your local database environment.
 
 # Installation
 After setting up the database, you can start the application by running:
