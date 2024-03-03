@@ -1,0 +1,49 @@
+CREATE DATABASE medical_supply;
+
+CREATE TABLE products(
+	product_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(250) NOT NULL,
+    price INT NOT NULL,
+    stock_quantity INT NOT NULL,
+    image_url VARCHAR(300) NOT NULL DEFAULT '/assets/default.img',
+    discount_amount INT
+    );
+
+CREATE TABLE purchases(
+purchase_id INT AUTO_INCREMENT PRIMARY KEY,
+userPhoneNumb VARCHAR(11) NOT NULL,
+items VARCHAR(500) NOT NULL,
+totalPrice INT NOT NULL,
+registerDate VARCHAR(90) NOT NULL
+);
+
+
+CREATE TABLE cart_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    session_id VARCHAR(255) NOT NULL
+);
+
+
+CREATE TABLE sessions (
+    sessionId VARCHAR(255) PRIMARY KEY,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data TEXT
+);
+    
+INSERT INTO products(name, price, stock_quantity, image_url)
+VALUES ('ماسک تنفسی N95', 25000, 254, 'https://m.media-amazon.com/images/I/81iLsObxBaL.jpg' ),
+       ('دستکش جراحی یکبار مصرف', 1000, 46, 'https://m.media-amazon.com/images/I/51OrEIzoiTL.jpg' ),
+       ('ضدعفونی کننده دست آنتی باکتریال', 50000, 24, 'https://m.media-amazon.com/images/I/71n+rf0HwhL.jpg' ),
+	   ('پدهای گاز استریل', 2000, 304, 'https://m.media-amazon.com/images/I/61g6eIsXVpL.jpg' ),
+       ('دماسنج دیجیتال', 100000, 8, 'https://m.media-amazon.com/images/I/41KjP9lSwSL._AC_UF1000,1000_QL80_.jpg' ),
+       ('مانیتور فشار خون', 500000, 9, 'https://m.media-amazon.com/images/I/6138LurvciL.jpg' ),
+       ('گوشی پزشکی', 250000, 599, 'https://m.media-amazon.com/images/I/61V6yWLLw8L.jpg' ),
+       ('کیت قطره IV', 1000000, 221, 'https://m.media-amazon.com/images/I/41HdKP8t+ZL._AC_UF1000,1000_QL80_.jpg' ),
+       ('بخیه جراحی', 20000, 440, 'https://m.media-amazon.com/images/I/81xTJAB6RSL.jpg' ),
+       ('کیت کمک‌های اولیه', 200000, 25, 'https://m.media-amazon.com/images/I/5106vRHnvbL._AC_UY1000_.jpg' );
+
+
+UPDATE products SET discount_amount=35 WHERE name='دستکش جراحی یکبار مصرف';
+UPDATE products SET discount_amount=50 WHERE name='گوشی پزشکی';
